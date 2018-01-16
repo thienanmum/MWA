@@ -1,0 +1,10 @@
+1. SetImmediate is used to schedule the execution of a callback after all IO callbacks executed. For the IO callbacks, 
+we don't know how long the execution lasts. Therefore, using SetImmediate is more efficient than using setTimeout 
+for do some processing right after IO operations finished.
+
+2. Difference between process.nextTick and SetImmediate is:
+- process.nextTick: schedules a callback to be executed right after the current operation completes.
+That means the callback will be executed before any additional IO or timer events. The callback is put into the nextTick queue. 
+- SetImmediate: schedule a callback to be executed after all IO event callbacks finished. The callback is put in the check phase queue.
+
+3. 10 global modules: fs, http, http2, https, os, net, stream, process, zlib, crypto
