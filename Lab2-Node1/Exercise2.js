@@ -17,7 +17,7 @@ const tree = {
 }; 
 
 var find = file => {
-    var findInTree = function (tree) {
+    const findInTree = function (tree) {
         if (tree.files != null) {
             for (const index in tree.files) {
                 if (tree.files[index] === file) return true;
