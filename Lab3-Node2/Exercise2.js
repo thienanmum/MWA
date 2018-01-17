@@ -3,6 +3,15 @@ const fs = require("fs");
 const path = require("path");
 
 http.createServer((req, res) => {
-    const src = fs.createReadStream(path.join(__dirname, "bigfile.jpg"));
+    const fileName = path.join(__dirname, "bigfile.jpg");
+    const src = fs.createReadStream(fileName);
     src.pipe(res);
-}).listen(8000, () => {"Server is listening on port 8000"});
+
+    // fs.readFile(fileName, (err, data) => {
+    //     if (err) throw err;
+    //     res.write(data);
+    // })
+
+    // res.write(fs.readFileSync(fileName));
+
+}).listen(8000, () => console.log("Server is listening on port 8000"));
