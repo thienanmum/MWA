@@ -1,0 +1,31 @@
+<head>
+    <title>Users</title>
+</head>
+<body>
+    <table border="1"> 
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Zip code</th>
+            <th>Latitude</th>
+            <th>Longtitue</th>
+            <th>Wesite</th>
+        </tr> 
+        <% users.forEach(user => { %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.name %></td>
+                <td><%= user.username %></td>
+                <td><%= user.email %></td>
+                <td><%= user.address.city %></td>
+                <td><%= user.address.zipcode %></td>
+                <td><%= user.address.geo.lat %></td>
+                <td><%= user.address.geo.lng %></td>
+                <td><%= user.website %></td>
+            </tr>
+        <% }); %>       
+    </table>    
+</body>
