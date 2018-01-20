@@ -2,9 +2,9 @@ const express = require('express');
 const path = require('path');
 const fetch = require('node-fetch');
 
-const fetchUser = require('./fetchPromise');
+// const fetchUser = require('./fetchPromise');
 // const fetchUser = require('./fetchAsync');
-// const fetchUser = require('./fetchObservable');
+const fetchUser = require('./fetchObservable');
 
 const app = express();
 
