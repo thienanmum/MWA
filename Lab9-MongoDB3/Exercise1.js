@@ -33,5 +33,6 @@ db.zips.aggregate([
         city:{$first:'$_id.city'},
         population:{$first:'$population'}
     }},
-    {$sort: {_id:1}}
+    {$project: {state:'$_id', city:1, _id:0}},
+    {$sort: {state:1}}    
 ])
