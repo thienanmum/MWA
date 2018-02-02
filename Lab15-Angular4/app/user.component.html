@@ -1,0 +1,24 @@
+<form class="container" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <fieldset class="form-group">
+        <legend class="col-form-legend col-sm-1-12">User Detail</legend>
+    </fieldset>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" [formControl]="userForm.controls['username']" class="form-control" id="name"> 
+      <span class="error" *ngIf="!userForm.controls['username'].valid">Required</span>    
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" [formControl]="userForm.controls['email']" class="form-control" id="email"/>
+        <span class="error" *ngIf="!userForm.controls['email'].valid">Required</span>
+    </div>
+    <div class="form-group">
+        <label for="post">Post</label>
+        <textarea [formControl]="userForm.controls['post']" class="form-control" id="post"></textarea>
+        <span class="error" *ngIf="userForm.controls['post'].hasError('invalidMin')">Minimum length 10</span>
+    </div>
+    <div class="form-group">        
+        <input type="submit" value="Submit" [disabled]='!userForm.valid' class="btn btn-primary"/>
+        <input type="button" value="Get Data" (click)="getData()" class="btn"/>
+    </div>    
+</form>
